@@ -8,13 +8,15 @@ namespace TransportLineRenderingFix.Detours
     public class TransportLineDetour
     {
         [RedirectMethod]
-        public static void RenderLine(ref TransportLine line, RenderManager.CameraInfo cameraInfo, int layerMask, ushort lineID)
+        public static void RenderLine(ref TransportLine line, RenderManager.CameraInfo cameraInfo, int layerMask, int typeMask, ushort lineID)
         {
             if (line.m_flags == TransportLine.Flags.None)
                 return;
             TransportInfo info =line.Info;
-//            if ((1 << info.m_prefabDataLayer & layerMask) == 0)
-//                return;
+            //begin mod
+            if ((1 << (int)(info.m_transportType & (TransportInfo.TransportType)31) & typeMask) == 0)
+                return;
+            //end mod
             TransportManager instance = Singleton<TransportManager>.instance;
             Mesh mesh = instance.m_lineMeshes[(int) lineID];
             if (!((UnityEngine.Object) mesh != (UnityEngine.Object) null))
