@@ -8,7 +8,7 @@ namespace TransportLineRenderingFix
     {
         public override void OnLevelLoaded(LoadMode mode)
         {
-            if (mode != LoadMode.LoadGame && mode != LoadMode.NewGame)
+            if (mode != LoadMode.LoadGame && mode != LoadMode.NewGame && mode != LoadMode.NewGameFromScenario)
             {
                 return;
             }
