@@ -7,6 +7,6 @@ namespace TransportLineRenderingFix
     {
         public string Name => "Transport Line Rendering Fix";
 
-        public string Description => "Allows to see underground portions of train, bus and tram lines and overground portions of metro lines";
+        public string Description => "Allows to see overground portions of metro lines";
     }
 }

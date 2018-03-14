@@ -8,13 +8,13 @@ namespace TransportLineRenderingFix
         {
             base.OnLevelLoaded(mode);
             var metro = PrefabCollection<TransportInfo>.FindLoaded("Metro");
-            var train = PrefabCollection<TransportInfo>.FindLoaded("Train");
-            if (train == null || metro == null)
+            if (metro == null)
             {
                 return;
             }
-            metro.m_lineMaterial.shader = train.m_lineMaterial.shader;
-            metro.m_lineMaterial2.shader = train.m_lineMaterial2.shader;
+            metro.m_secondaryLayer = 9;
+            metro.m_secondaryLineMaterial = metro.m_lineMaterial;
+            metro.m_secondaryLineMaterial2 = metro.m_lineMaterial2;
         }
     }
 }
